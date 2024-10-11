@@ -3,4 +3,5 @@ Guides to help you (and the future me) to avoid the same mistakes and painstakin
 
 ## Topics
 
-* [cPouta](cpouta.md)
+* [cPouta](cpouta.md)  
+* [GPU-CUDA setups](gpu-cuda.md)
