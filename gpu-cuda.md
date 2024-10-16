@@ -6,6 +6,8 @@ filename: gpu-cuda.md
 
 Setting up GPU-CUDA accelerated environemnts (Real pain in the ass).
 
+> NOTE! Installation steps below are done on older Pascal architecture GPUs which lack support for recent versions of many packages. If you have access to newer GPUs, try following official guides instead the ones here.
+
 ## Ubuntu 22.04 in cPouta with NVIDIA Tesla P100 (Pascal architecture)
 
 NVIDIA drivers installed on ubuntu, cuda toolkit installed via conda. Perhaps not the smartest choice but works.
@@ -87,3 +89,5 @@ Below installation for using Llama-CPP as [in this example](https://xcelore.com/
 #CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python  # new versions don't work here
 5. CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install llama-cpp-python==0.2.60 --no-cache-dir --verbose
 ```
+
+> NOTE! After installation, do run `sudo reboot` before proceeding!
