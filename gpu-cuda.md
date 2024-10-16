@@ -10,6 +10,28 @@ Setting up GPU-CUDA accelerated environemnts (Real pain in the ass).
 
 ## Ubuntu 22.04 in cPouta with NVIDIA Tesla P100 (Pascal architecture)
 
+Using 550 driver, cuda toolbox 11.8
+
+```
+1. sudo apt update
+2. sudo apt install nvidia-driver-550-server
+3. wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_520.61.05_linux.run
+4. sudo sh cuda_11.8.0_520.61.05_linux.run
+5. sudo reboot
+6. export PATH=/usr/local/cuda-11.8/bin${PATH:+:${PATH}}
+7. export LD_LIBRARY_PATH=/usr/local/cuda-11.8/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+8. nvidia-smi
+9. conda create --name llama_cpp python==3.10 xformers::xformers conda-forge::huggingface_hub conda-forge::transformers
+10. conda activate llama_cpp
+#11. pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+#12. python -c 'import torch; print(torch.cuda.is_available())'
+13. pip install --extra-index-url=https://pypi.nvidia.com cudf-cu11==23.12.* dask-cudf-cu11==23.12.* cuml-cu11==23.12.* cugraph-cu11==23.12.*
+14.  pip install cupy-cuda11x bertopic datasets
+```
+
+
+
+> NOTE! OLD STUFF. DOES NOT WORK! (It worked previously but not anymore!?)
 NVIDIA drivers installed on ubuntu, cuda toolkit installed via conda. Perhaps not the smartest choice but works.
 
 ```
