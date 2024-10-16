@@ -18,6 +18,7 @@ NVIDIA drivers installed on ubuntu, cuda toolkit installed via conda. Perhaps no
 2. sudo apt install build-essential
 3. sudo apt-get install alsa-utils  # had to be installed manually for some reason
 4. sudo apt install nvidia-driver-550-server
+sudo reboot
 # Conda installation. Skip if already installed.
 5. wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 6. mkdir -p ~/miniconda3
