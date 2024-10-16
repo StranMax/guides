@@ -26,3 +26,15 @@ host ANYOTHERNAME
 	IdentityFile ~/.ssh/KEY.pem
 	LocalForward 8080 127.0.0.1:8888  # Forward localhost port 8888 from remote machine to 8080 on local machine. Useful for Jupyter notebooks.
 ```
+
+## Setup github
+
+```
+git config --global credential.helper store
+git clone https://github.com/StranMax/textminer.git
+cd textminer/
+git add .
+git commit -m "example change"
+git push origin master
+
+```
