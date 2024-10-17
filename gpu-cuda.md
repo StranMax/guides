@@ -4,11 +4,12 @@ layout: template
 filename: gpu-cuda.md
 --- 
 
-Setting up GPU-CUDA accelerated environemnts (Real pain in the ass).
+
+## Setting up GPU-CUDA accelerated environemnts (Real pain in the ass).
 
 > NOTE! Installation steps below are done on older Pascal architecture GPUs which lack support for recent versions of many packages. If you have access to newer GPUs, try following official guides instead the ones here.
 
-## Ubuntu 22.04 in cPouta with NVIDIA Tesla P100 (Pascal architecture)
+### Ubuntu 22.04 in cPouta with NVIDIA Tesla P100 (Pascal architecture)
 
 Using 550 driver, cuda toolbox 11.8
 
@@ -29,7 +30,15 @@ Using 550 driver, cuda toolbox 11.8
 14.  pip install cupy-cuda11x bertopic datasets
 ```
 
+## Using multi-gpu when single process runs only on one gpu
 
+Install GNU Parallel and run as many jobs in parallel as you have GPUs
+
+Change `-j2` to which ever is your GPU count
+
+```
+ls -d */ | parallel -j2 CUDA_VISIBLE_DEVICES='$(({%} - 1))' ./this_is_a_script.sh {}
+```
 
 > NOTE! OLD STUFF. DOES NOT WORK! (It worked previously but not anymore!?)
 NVIDIA drivers installed on ubuntu, cuda toolkit installed via conda. Perhaps not the smartest choice but works.
